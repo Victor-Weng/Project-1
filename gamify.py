@@ -11,19 +11,22 @@ def cur_health():
     return health_points
 
 def offer_star(activity):
-    if (activity == "running"):
-        pass
+    '''
+    Set star_offered variable to 0, 1, or 2 to indicate the offered activity
+    '''
+    if (activity == "running"): 
+        star_offered = 0
         # running thing
     elif (activity == "textbooks"):
-        pass
+        star_offered = 1
         # thing
     elif (activity == "resting"):
-        pass
+        star_offered = 2
         # thing
 
 def perform_activity(activity, duration):
     time=duration
-    if (activity == "running"):
+    if (activity == "running"): 
         pass
         # running thing
     elif (activity == "textbooks"):
@@ -43,9 +46,10 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, is_running, is_carrying_textbooks, is_resting
+    global health_points, hedons, star_offered
     health_points = 0
     hedons = 0
+    star_offered = 0 # running = 0, textbooks = 1, resting = 2
     return None
 
 if __name__ == "__main__":
