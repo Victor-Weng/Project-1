@@ -1,10 +1,14 @@
 def cur_hedons():
+    '''
+    return number of hedons that the user has accumulated so far.
+    '''
     return hedons
 
 def cur_health():
+    '''
+    return number of health points that the user has accumulated so far.
+    '''
     return health_points
-
-
 
 def offer_star(activity):
     if (activity == "running"):
