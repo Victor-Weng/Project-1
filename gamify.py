@@ -14,7 +14,7 @@ def offer_star(activity):
     '''
     Set star_offered variable to 0, 1, or 2 to indicate the offered activity
     '''
-    global star_offered # set the star_offered variable to the activity that corresponds with it
+    global star_offered, star_time, time # set the star_offered variable to the activity that corresponds with it
     if (activity == "running"): 
         star_offered = "running"
         # running thing
@@ -24,6 +24,7 @@ def offer_star(activity):
     elif (activity == "resting"):
         star_offered = "resting"
         # thing
+    star_time = time
 
 def perform_activity(activity, duration):
     '''
@@ -58,7 +59,8 @@ def star_can_be_taken(activity):
     '''
     global star_offered # activity that was offered by the star
 
-    if (activity == star_offered) and ()
+    if (activity == star_offered) and (star_time == time) and (not is_bored):
+        return True
     else:
         return False
 
@@ -66,12 +68,13 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, star_offered, current_activity, time, star_time
+    global health_points, hedons, star_offered, current_activity, time, star_time, is_bored
     health_points = 0
     hedons = 0
     star_offered = "running"
     time = 0
     star_time = 0
+    is_bored = False
     return None
 
 if __name__ == "__main__":
