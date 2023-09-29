@@ -46,10 +46,11 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, star_offered
+    global health_points, hedons, star_offered, current_activity
     health_points = 0
     hedons = 0
     star_offered = 0 # running = 0, textbooks = 1, resting = 2
+    current_activity = 0 # running = 0, textbooks = 1, resting = 2
     return None
 
 if __name__ == "__main__":
@@ -57,5 +58,4 @@ if __name__ == "__main__":
     # Simulation 1
     initialize()
     # Simulation 2
-    # hehe
     pass
