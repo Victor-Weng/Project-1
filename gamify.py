@@ -9,6 +9,7 @@ def initialize():
     is_running = False
     is_carrying_textbooks = False
     is_resting = False
+    return None
 
 if __name__ == "__main__":
     initialize()
