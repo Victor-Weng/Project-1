@@ -28,6 +28,8 @@ def perform_activity(activity, duration):
     elif (activity == "resting"):
         pass
         # thing
+    else:
+        print("Activity is not valid")
     return None
 
 def most_fun_activity_minute():
