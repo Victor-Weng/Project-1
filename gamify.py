@@ -36,7 +36,6 @@ def perform_activity(activity, duration):
         # running thing
     elif (activity == "textbooks"):
         health_points+=2*time
-        pass
         # thing
     elif (activity == "resting"):
         pass
@@ -65,10 +64,11 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, star_offered, current_activity
+    global health_points, hedons, star_offered, current_activity, textbook_and_running_time
     health_points = 0
     hedons = 0
     star_offered = "running"
+    textbook_and_running_time=0
     return None
 
 if __name__ == "__main__":
