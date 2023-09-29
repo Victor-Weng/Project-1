@@ -50,11 +50,12 @@ def most_fun_activity_minute():
 def star_can_be_taken(activity):
     '''
     return true iff star can be taken for current activity
+    If no time passed between the star’s being offered and the activity, and the user is not bored with
+    stars, and the star was offered for activity activity.
     '''
     global star_offered # activity that was offered by the star
 
-    if (activity == star_offered):
-        return True
+    if (activity == star_offered) and ()
     else:
         return False
 
@@ -62,10 +63,12 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, star_offered, current_activity
+    global health_points, hedons, star_offered, current_activity, time, star_time
     health_points = 0
     hedons = 0
     star_offered = "running"
+    time = 0
+    star_time = 0
     return None
 
 if __name__ == "__main__":
