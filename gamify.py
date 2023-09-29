@@ -5,7 +5,6 @@ def initialize():
     is_running = False
     is_carrying_textbooks = False
     is_resting = False
-    return
 
 if __name__ == "__main__":
     pass
