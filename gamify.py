@@ -29,10 +29,13 @@ def perform_activity(activity, duration):
     '''
     '''
     time=duration
-    if (activity == "running"): 
-        pass
+    if (activity == "running"):
+        health_points+=min(3*time, 180)
+        if (time>180):
+            health_points+=time-180
         # running thing
     elif (activity == "textbooks"):
+        health_points+=2*time
         pass
         # thing
     elif (activity == "resting"):
