@@ -29,20 +29,65 @@ def offer_star(activity):
 def perform_activity(activity, duration):
     '''
     '''
-    time=duration
+    global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored
+
+    # Local boolean is tired if less than 2 hours since last finishing running/textbook
+    is_tired = run_or_textbook_time-time < 120
+
+
+
+############################################## TEMPORARY VARIABLE
+    using_star = False
+############################################## TEMPORARY VARIABLE
+
+
+
+    # Progressing time (So that time accessed throughout function is time at end of activity)
+    time+=duration
+
+
+    activity_duration=duration
     if (activity == "running"):
-        health_points+=min(3*time, 180)
+        # Adding health from run
+        health_points+=min(3*activity_duration, 180)
         if (time>180):
-            health_points+=time-180
+            health_points+=activity_duration-180
+        # Set latest run or textbook time to current
+        run_or_textbook_time=time
+
+        if (is_tired and not using_star):
+            hedons += -2*duration
+        elif (not is_tired and not using_star):
+            if duration<=10:
+                hedons += 2*duration
+            elif duration>10:
+                hedons += 20-(2*(duration-10))
+
+        
         # running thing
     elif (activity == "textbooks"):
-        health_points+=2*time
-        # thing
+        health_points+=2*activity_duration
+
+        # Set latest run or textbook time to current
+        run_or_textbook_time=time
+
+
+        
+        if (is_tired and not using_star):
+            hedons += -2*duration
+        elif (not is_tired and not using_star):
+            if duration<=20:
+                hedons += duration
+            elif duration>20:
+                hedons += 20-(2*(duration-20))
     elif (activity == "resting"):
         pass
         # thing
     else:
         print("Activity is not valid")
+    
+
+    
     return None
 
 def most_fun_activity_minute():
@@ -67,12 +112,13 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, star_offered, current_activity, time, star_time, is_bored
+    global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored
     health_points = 0
     hedons = 0
     star_offered = "running"
     time = 0
     star_time = 0
+    run_or_textbook_time = 0
     is_bored = False
     return None
 
