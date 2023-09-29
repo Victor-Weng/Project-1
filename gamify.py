@@ -43,7 +43,7 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, is_running, is_carrying_textbooks, is_resting
+    global health_points, hedons
     health_points = 0
     hedons = 0
     return None
