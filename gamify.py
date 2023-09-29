@@ -1,6 +1,6 @@
 def initialize():
     # global variables here
-    return
+    return None
 
 if __name__ == "__main__":
     pass
