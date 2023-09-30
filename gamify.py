@@ -39,7 +39,6 @@ def perform_activity(activity, duration):
     time+=duration
 
 
-
     activity_duration=duration
     if (activity == "running"):
         # Adding health from run
