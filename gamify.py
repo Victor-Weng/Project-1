@@ -15,6 +15,8 @@ def offer_star(activity):
     Set star_offered variable to 0, 1, or 2 to indicate the offered activity
     '''
     global star_offered, star_time, time # set the star_offered variable to the activity that corresponds with it
+    temp = [] # used to shift star_time array down
+    
     if (activity == "running"): 
         star_offered = "running"
         # running thing
@@ -24,7 +26,15 @@ def offer_star(activity):
     elif (activity == "resting"):
         star_offered = "resting"
         # thing
-    star_time = time
+    
+    temp = star_time
+
+    star_time[0] = temp[1]
+    star_time[1] = temp[2]
+    star_time[2] = time
+
+    if (time-star_time[0]) < 120:
+        is_bored = True
 
 def perform_activity(activity, duration):
     '''
@@ -32,7 +42,6 @@ def perform_activity(activity, duration):
     global health_points, hedons, star_offered, star_can_be_taken, time, star_time, run_or_textbook_time, is_bored
     # Local boolean is tired if less than 2 hours since last finishing running/textbook
     is_tired = run_or_textbook_time-time < 120
-
 
     # Progressing time (So that time accessed throughout function is time at end of activity)
     time+=duration
@@ -118,7 +127,7 @@ def initialize():
     hedons = 0
     star_offered = "none"
     time = 0
-    star_time = 0
+    star_time = [0,0,0]
     run_or_textbook_time = 120 #> 120 so you start not tired
     is_bored = False
     return None
