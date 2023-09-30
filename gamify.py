@@ -86,6 +86,8 @@ def perform_activity(activity, duration):
     else:
         print("Activity is not valid")
     
+    # 
+    star_offered = "Star Expired"
 
     
     return None
