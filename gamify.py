@@ -52,12 +52,11 @@ def perform_activity(activity, duration):
         elif duration < 10:
             hedons+=3*duration
 
-    activity_duration=duration
     if (activity == "running"):
         # Adding health from run
-        health_points+=3*min(activity_duration, 180)
+        health_points+=3*min(duration, 180)
         if (duration>180):
-            health_points+=activity_duration-180
+            health_points+=duration-180
         # Set latest run or textbook time to current
         run_or_textbook_time=time
 
@@ -70,7 +69,7 @@ def perform_activity(activity, duration):
                 hedons += 20-(2*(duration-10))
         # running thing
     elif (activity == "textbooks"):
-        health_points+=2*activity_duration
+        health_points+=2*duration
 
         # Set latest run or textbook time to current
         run_or_textbook_time=time
