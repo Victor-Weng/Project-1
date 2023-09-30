@@ -46,7 +46,7 @@ def perform_activity(activity, duration):
     # Progressing time (So that time accessed throughout function is time at end of activity)
     time+=duration
 
-    if star_can_be_taken and not is_bored:
+    if star_can_be_taken(activity) and not is_bored:
         if duration > 10:
             hedons+=30
         elif duration < 10:
@@ -68,9 +68,6 @@ def perform_activity(activity, duration):
                 hedons += 2*duration
             elif duration>10:
                 hedons += 20-(2*(duration-10))
-        if (star_offered=="running"):
-            hedons+=3*min(duration, 10)
-        
         # running thing
     elif (activity == "textbooks"):
         health_points+=2*activity_duration
@@ -85,18 +82,14 @@ def perform_activity(activity, duration):
                 hedons += duration
             elif duration>20:
                 hedons += 20-(2*(duration-20))
-        if (star_offered=="textbooks"):
-            hedons+=3*min(duration, 10)
+
     elif (activity == "resting"):
-        if (star_offered=="resting"):
-            hedons+=3*min(duration, 10)
+
     else:
         print("Activity is not valid")
     
     # Because the star only works for the next action, otherwise, it expires.
     star_offered = "Star Expired"
-
- 
 
     return None
 
