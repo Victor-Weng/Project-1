@@ -105,11 +105,11 @@ def most_fun_activity_minute():
 
     if (not is_bored) and (star_offered != "Star Expired"):
         if star_offered == "resting":
-            accessed
+            pass
         elif star_offered == "running":
-            accessed
+            pass
         elif star_offered == "textbooks":
-            accessed
+            pass
 
     return None
 
