@@ -46,7 +46,7 @@ def perform_activity(activity, duration):
     # Progressing time (So that time accessed throughout function is time at end of activity)
     time+=duration
 
-    if star_can_be_taken:
+    if star_can_be_taken and not is_bored:
         if duration > 10:
             hedons+=30
         elif duration < 10:
