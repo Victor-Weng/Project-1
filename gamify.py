@@ -125,6 +125,17 @@ if __name__ == "__main__":
     perform_activity("running", 30)
     print(get_cur_hedons()) # -20 = 10 * 2 + 20 * (-2)
     print(get_cur_health()) # 90 = 30 * 3
+    print(most_fun_activity_minute()) # resting
+    perform_activity("resting", 30)
+    offer_star("running")
+    print(most_fun_activity_minute()) # running
+    perform_activity("textbooks", 30)
+    print(get_cur_health()) # 150 = 90 + 30*2
+
+    initialize()
+    perform_activity("running", 30)
+    print(get_cur_hedons()) # -20 = 10 * 2 + 20 * (-2)
+    print(get_cur_health()) # 90 = 30 * 3
     print(most_fun_activity_minute()) #resting
     perform_activity("resting", 30)
     offer_star("running")
@@ -137,5 +148,7 @@ if __name__ == "__main__":
     print(get_cur_health()) # 210 = 150 + 20 * 3
     print(get_cur_hedons()) # -90 = -80 + 10 * (3-2) + 10 * (-2)
     perform_activity("running", 170)
+    ################################ I GOT DIFFERENT ANSWER. CAN YOU CHECK LOGIC?
     print(get_cur_health()) # 700 = 210 + 160 * 3 + 10 * 1
+    ################################ I GOT DIFFERENT ANSWER. CAN YOU CHECK LOGIC?
     print(get_cur_hedons()) # -430 = -90 + 170 * (-2)
