@@ -120,6 +120,3 @@ def initialize():
 if __name__ == "__main__":
     initialize()
     # Simulation 1
-    initialize()
-    # Simulation 2
-    pass
