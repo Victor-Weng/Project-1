@@ -39,6 +39,7 @@ def perform_activity(activity, duration):
     time+=duration
 
 
+
     activity_duration=duration
     if (activity == "running"):
         # Adding health from run
@@ -57,6 +58,7 @@ def perform_activity(activity, duration):
                 hedons += 20-(2*(duration-10))
         if (star_offered=="running"):
             hedons+=3*min(duration, 10)
+        
         # running thing
     elif (activity == "textbooks"):
         health_points+=2*activity_duration
@@ -82,7 +84,8 @@ def perform_activity(activity, duration):
     # Because the star only works for the next action, otherwise, it expires.
     star_offered = "Star Expired"
 
-    
+ 
+
     return None
 
 def most_fun_activity_minute():
@@ -113,7 +116,7 @@ def initialize():
     star_offered = "none"
     time = 0
     star_time = 0
-    run_or_textbook_time = 0
+    run_or_textbook_time = 120 #> 120 so you start not tired
     is_bored = False
     return None
 
