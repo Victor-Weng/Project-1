@@ -110,7 +110,7 @@ def initialize():
     global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored
     health_points = 0
     hedons = 0
-    star_offered = "running"
+    star_offered = "none"
     time = 0
     star_time = 0
     run_or_textbook_time = 0
