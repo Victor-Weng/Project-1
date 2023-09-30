@@ -29,8 +29,7 @@ def offer_star(activity):
 def perform_activity(activity, duration):
     '''
     '''
-    global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored
-
+    global health_points, hedons, star_offered, star_can_be_taken, time, star_time, run_or_textbook_time, is_bored
     # Local boolean is tired if less than 2 hours since last finishing running/textbook
     is_tired = run_or_textbook_time-time < 120
 
@@ -38,6 +37,11 @@ def perform_activity(activity, duration):
     # Progressing time (So that time accessed throughout function is time at end of activity)
     time+=duration
 
+    if star_can_be_taken:
+        if duration > 10:
+            hedons+=30
+        elif duration < 10:
+            hedons+=3*duration
 
     activity_duration=duration
     if (activity == "running"):
