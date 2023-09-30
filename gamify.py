@@ -43,15 +43,15 @@ def perform_activity(activity, duration):
     activity_duration=duration
     if (activity == "running"):
         # Adding health from run
-        health_points+=min(3*activity_duration, 180)
-        if (time>180):
+        health_points+=3*min(activity_duration, 180)
+        if (duration>180):
             health_points+=activity_duration-180
         # Set latest run or textbook time to current
         run_or_textbook_time=time
 
-        if (is_tired and not star_offered=="running"):
+        if (is_tired):
             hedons += -2*duration
-        elif (not is_tired and not star_offered=="running"):
+        else:
             if duration<=10:
                 hedons += 2*duration
             elif duration>10:
@@ -68,7 +68,7 @@ def perform_activity(activity, duration):
 
         if (is_tired):
             hedons += -2*duration
-        elif (not is_tired):
+        else:
             if duration<=20:
                 hedons += duration
             elif duration>20:
