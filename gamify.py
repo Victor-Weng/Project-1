@@ -47,7 +47,7 @@ def perform_activity(activity, duration):
     time+=duration
 
     if star_can_be_taken(activity) and not is_bored:
-        if duration > 10:
+        if duration >= 10:
             hedons+=30
         elif duration < 10:
             hedons+=3*duration
