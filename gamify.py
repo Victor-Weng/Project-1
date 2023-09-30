@@ -35,13 +35,6 @@ def perform_activity(activity, duration):
     is_tired = run_or_textbook_time-time < 120
 
 
-
-############################################## TEMPORARY VARIABLE
-    using_star = False
-############################################## TEMPORARY VARIABLE
-
-
-
     # Progressing time (So that time accessed throughout function is time at end of activity)
     time+=duration
 
@@ -55,15 +48,15 @@ def perform_activity(activity, duration):
         # Set latest run or textbook time to current
         run_or_textbook_time=time
 
-        if (is_tired and not using_star):
+        if (is_tired and not star_offered=="running"):
             hedons += -2*duration
-        elif (not is_tired and not using_star):
+        elif (not is_tired and not star_offered=="running"):
             if duration<=10:
                 hedons += 2*duration
             elif duration>10:
                 hedons += 20-(2*(duration-10))
-
-        
+        if (star_offered=="running"):
+            hedons+=3*min(duration, 10)
         # running thing
     elif (activity == "textbooks"):
         health_points+=2*activity_duration
@@ -73,16 +66,18 @@ def perform_activity(activity, duration):
 
 
         
-        if (is_tired and not using_star):
+        if (is_tired):
             hedons += -2*duration
-        elif (not is_tired and not using_star):
+        elif (not is_tired):
             if duration<=20:
                 hedons += duration
             elif duration>20:
                 hedons += 20-(2*(duration-20))
+        if (star_offered=="textbooks"):
+            hedons+=3*min(duration, 10)
     elif (activity == "resting"):
-        pass
-        # thing
+        if (star_offered=="resting"):
+            hedons+=3*min(duration, 10)
     else:
         print("Activity is not valid")
     
