@@ -142,7 +142,7 @@ def star_can_be_taken(activity):
     '''
     global star_offered # activity that was offered by the star
 
-    if (activity == star_offered) and (star_time == time) and (not is_bored):
+    if (activity == star_offered) and (star_time[2] == time) and (not is_bored):
         return True
     else:
         return False
