@@ -64,8 +64,6 @@ def perform_activity(activity, duration):
         # Set latest run or textbook time to current
         run_or_textbook_time=time
 
-
-        
         if (is_tired):
             hedons += -2*duration
         elif (not is_tired):
@@ -81,7 +79,7 @@ def perform_activity(activity, duration):
     else:
         print("Activity is not valid")
     
-    # 
+    # Because the star only works for the next action, otherwise, it expires.
     star_offered = "Star Expired"
 
     
