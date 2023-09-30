@@ -14,7 +14,7 @@ def offer_star(activity):
     '''
     Set star_offered variable to 0, 1, or 2 to indicate the offered activity
     '''
-    global star_offered, star_time, time # set the star_offered variable to the activity that corresponds with it
+    global star_offered, star_time, time, is_bored # set the star_offered variable to the activity that corresponds with it
     temp = [] # used to shift star_time array down
     
     if (activity == "running"): 
