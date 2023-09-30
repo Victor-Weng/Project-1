@@ -97,21 +97,42 @@ def most_fun_activity_minute():
     Return activity ("resting", "running", "textbooks") that gives the most
     hedons if person performed it for one minute at the current time
     '''
-    global is_bored, star_offered, time
+    global is_bored, star_offered, run_or_textbook_time, time
 
-    run_score = 0
     res_score = 0
+    run_score = 0
     tex_score = 0
+    is_tired = run_or_textbook_time-time < 120
 
     if (not is_bored) and (star_offered != "Star Expired"):
         if star_offered == "resting":
+            res_score+=0
             pass
         elif star_offered == "running":
+            run_score+=3
             pass
         elif star_offered == "textbooks":
-            pass
+            tex_score+=3
+            
+    if (not is_tired):
+        res_score += 0
+        run_score += 2
+        tex_score += 1
+    elif (star_offered == "resting"):
+        run_score -= 2
+        tex_score -= 2
+    elif (star_offered == "running"):
+        run_score += 0
+        tex_score -= 2
+    elif (star_offered == "textbooks"):
+        run_score -= 2
+        tex_score += 0
 
-    return None
+    activity_array = ["resting", "running", "textbooks"]
+    score_array = [res_score, run_score, tex_score]
+
+    return activity_array[score_array.index(max(score_array))]
+    # return the activity in the index in score_array with the max (highest) score
 
 def star_can_be_taken(activity):
     '''
