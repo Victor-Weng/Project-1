@@ -84,7 +84,7 @@ def perform_activity(activity, duration):
                 hedons += 20-(2*(duration-20))
 
     elif (activity == "resting"):
-
+        pass
     else:
         print("Activity is not valid")
     
