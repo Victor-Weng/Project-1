@@ -39,7 +39,7 @@ def offer_star(activity):
 def perform_activity(activity, duration):
     '''
     '''
-    global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored
+    global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored, accumulated_running
     # Local boolean is tired if less than 2 hours since last finishing running/textbook
     is_tired = run_or_textbook_time-time < 120
 
@@ -54,12 +54,12 @@ def perform_activity(activity, duration):
 
     if (activity == "running"):
         # Adding health from run
-        health_points+=3*min(duration, 180)
-        if (duration>180):
-            health_points+=duration-180
+        health_points+=3*min(duration, 180-accumulated_running)
+        if (duration>180-accumulated_running):
+            health_points+=duration-(180-accumulated_running)
         # Set latest run or textbook time to current
         run_or_textbook_time=time
-
+        accumulated_running+=duration
         if (is_tired):
             hedons += -2*duration
         else:
@@ -81,9 +81,10 @@ def perform_activity(activity, duration):
                 hedons += duration
             elif duration>20:
                 hedons += 20-(2*(duration-20))
+        accumulated_running=0
 
     elif (activity == "resting"):
-        pass
+        accumulated_running=0
     else:
         print("Activity is not valid")
     
@@ -151,7 +152,7 @@ def initialize():
     '''
     Initialize global variables
     '''
-    global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored
+    global health_points, hedons, star_offered, time, star_time, run_or_textbook_time, is_bored, accumulated_running
     health_points = 0
     hedons = 0
     star_offered = "none"
@@ -159,6 +160,7 @@ def initialize():
     star_time = [-120,-120,-120]
     run_or_textbook_time = 120 #> 120 so you start not tired
     is_bored = False
+    accumulated_running=0
     return None
 
 if __name__ == "__main__":
